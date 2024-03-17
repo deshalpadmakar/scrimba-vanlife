@@ -7,31 +7,35 @@ export default function Income() {
         { amount: 980, date: "Dec 3, '22", id: "3" },
     ]
     return (
-        <section className="host-income">
-            <h1>Income</h1>
-            <p>
-                Last <span>30 days</span>
-            </p>
-            <h2>$2,260</h2>
-            <img
-                className="graph"
-                src="/assets/images/income-graph.png"
-                alt="Income graph"
-            />
-            <div className="info-header">
-                <h3>Your transactions (3)</h3>
-                <p>
-                    Last <span>30 days</span>
-                </p>
-            </div>
-            <div className="transactions">
-                {transactionsData.map((item) => (
-                    <div key={item.id} className="transaction">
-                        <h3>${item.amount}</h3>
-                        <p>{item.date}</p>
+        <div className="container">
+            <div className="inner-container">
+                <section className="host-income">
+                    <div className="host-income-hero">
+                        <h1>Income</h1>
+                        <div>
+                            <h2>$2,260</h2>
+                            <p>
+                                (Last 30 days)
+                            </p>
+                        </div>
                     </div>
-                ))}
-            </div>
-        </section>
+                    <div className="info-header">
+                        <h3>Transactions (3)</h3>
+                        <p>
+                            Last <span>30 days</span>
+                        </p>
+                    </div>
+                    <div className="transactions">
+                        {transactionsData.map((item) => (
+                            <div key={item.id} className="transaction">
+                                <h3>${item.amount}</h3>
+                                <p>{item.date}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </div>    
+        </div>
+        
     )
 }

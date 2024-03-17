@@ -25,7 +25,11 @@ export default function VanDetail() {
     }, [id])
     
     if (loading) {
-        return <h1>Loading...</h1>
+        return (
+            <div className="container">
+                <h1>Loading...</h1>
+            </div>
+        )
     }
     
     if (error) {
@@ -36,7 +40,7 @@ export default function VanDetail() {
     const type = location.state?.type || "all";
     
     return (
-        <div className="van-detail-container">
+        <div className="van-detail-container container">
             <Link
                 to={`..${search}`}
                 relative="path"
@@ -46,9 +50,9 @@ export default function VanDetail() {
             {van && (
                 <div className="van-detail">
                     <img src={van.imageUrl} />
-                    <i className={`van-type ${van.type} selected`}>
+                    <div className={`van-type ${van.type} selected`}>
                         {van.type}
-                    </i>
+                    </div>
                     <h2>{van.name}</h2>
                     <p className="van-price"><span>${van.price}</span>/day</p>
                     <p>{van.description}</p>

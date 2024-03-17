@@ -41,7 +41,7 @@ export default function Login() {
     }
 
     return (
-        <div className="login-container">
+        <div className="login-container container">
             {
                 location.state?.message &&
                     <h3 className="login-error">{location.state.message}</h3>

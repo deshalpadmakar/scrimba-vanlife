@@ -17,14 +17,15 @@ export default function Dashboard() {
 
     function renderVanElements(vans) {
         const hostVansEls = vans.map((van) => (
-            <div className="host-van-single" key={van.id}>
-                <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
-                <div className="host-van-info">
-                    <h3>{van.name}</h3>
-                    <p>${van.price}/day</p>
+            <Link to={`vans/${van.id}`}>
+                <div className="host-van-single" key={van.id}>
+                    <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
+                    <div className="host-van-info">
+                        <h3>{van.name}</h3>
+                        <p>${van.price}/day</p>
+                    </div>
                 </div>
-                <Link to={`vans/${van.id}`}>View</Link>
-            </div>
+            </Link>
         ))
 
         return (
@@ -54,9 +55,7 @@ export default function Dashboard() {
             </section>
             <section className="host-dashboard-reviews">
                 <h2>Review score</h2>
-
                 <BsStarFill className="star" />
-
                 <p>
                     <span>5.0</span>/5
                 </p>

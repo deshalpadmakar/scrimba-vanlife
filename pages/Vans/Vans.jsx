@@ -44,7 +44,7 @@ export default function Vans() {
                     <h3>{van.name}</h3>
                     <p>${van.price}<span>/day</span></p>
                 </div>
-                <i className={`van-type ${van.type} selected`}>{van.type}</i>
+                <div className={`van-type ${van.type} selected`}>{van.type}</div>
             </Link>
         </div>
     ))
@@ -61,7 +61,11 @@ export default function Vans() {
     }
 
     if (loading) {
-        return <h1>Loading...</h1>
+        return (
+            <div className="container">
+                <h1>Loading...</h1>
+            </div>
+        )
     }
     
     if (error) {
@@ -69,9 +73,9 @@ export default function Vans() {
     }
 
     return (
-        <div className="van-list-container">
+        <div className="van-list-container container">
             <h1>Explore our van options</h1>
-            <div className="van-list-filter-buttons">
+            <div className="van-list-filter-container">
                 <button
                     onClick={() => handleFilterChange("type", "simple")}
                     className={
